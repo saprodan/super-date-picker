@@ -1,0 +1,108 @@
+.superPicker {
+  display: flex;
+  max-width: 600px;
+  gap: 5px;
+  user-select: none;
+}
+
+.updateBtn {
+  display: block;
+  align-self: stretch;
+  background-color: var(--color-4);
+  border-radius: 4px;
+  color: #fff;
+  padding: 5px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease-in;
+  &:hover {
+    background-color: var(--color-4-hover);
+  }
+}
+
+.controls {
+  position: relative;
+  height: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  flex-grow: 1;
+  display: flex;
+}
+
+.controls__quickSelect {
+  flex: 0 0 60px;
+  background-color: var(--color-1);
+  color: var(--color-3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.controls__qsIcon {
+  color: var(--color-3);
+  width: 20px;
+  height: 20px;
+}
+
+.controls__dates {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.controls__start,
+.controls__end {
+  padding: 5px 5px;
+  flex-grow: 1;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  & span {
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.controls__splitIcon {
+  flex: 0 0 40px;
+  width: 20px;
+  height: 20px;
+  color: #7e7e7e;
+}
+
+.controls__options {
+  width: 370px;
+  &_right {
+    right: 0;
+  }
+}
+
+.padding {
+  padding: 8px;
+}
+
+.now {
+  padding: 20px 8px;
+  &__btn {
+    display: block;
+    width: 100%;
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    background-color: var(--color-3);
+    transition: all 0.2s ease-in-out;
+    color: #fff;
+    &:hover {
+      background-color: var(--color-3-hover);
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.relativePicker {
+  background-color: #fff;
+}
+
+.form {
+  border: none;
+  margin-bottom: 8px;
+
+  &__row {
+    display: flex;
+    column-gap: 4px;
+    justify-content: space-between;
+  }
+  &__input {
+    min-width: 0;
+    flex: 1;
+    display: block;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 1px solid var(--border-color);
+  }
+  &__error {
+    color: red;
+  }
+}
+
+.output {
+  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  overflow: hidden;
+  &__label {
+    background-color: var(--color-1);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+  }
+
+  &__value {
+    text-align: left;
+    font-size: 14px;
+    padding: 5px 10px;
+    flex: 1;
+  }
+}

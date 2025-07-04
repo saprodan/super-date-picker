@@ -1,0 +1,19 @@
+.tabBar {
+  border-bottom: 1px solid var(--border-color);
+  & ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+  & li {
+    flex-grow: 1;
+    padding: 5px 15px;
+    font-size: 0.8em;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.activeTab {
+  border-bottom: 2px solid var(--color-3);
+}

@@ -1,0 +1,155 @@
+.absolutePicker {
+  background-color: #fff;
+}
+
+.control {
+  display: flex;
+  column-gap: 5px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  &__select {
+    border: 1px solid var(--border-color);
+    flex: 1;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  &__btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: var(--color-1);
+    }
+  }
+}
+
+.picker {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.calendar {
+  font-size: 14px;
+  &__days {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: rgba(0, 39, 112, 0.445);
+    margin-bottom: 2px;
+    gap: 2px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+  }
+
+  &__week {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 2px;
+    gap: 2px;
+  }
+
+  &__day {
+    border-radius: 5px;
+    cursor: pointer;
+
+    font-weight: 500;
+
+    & span {
+      display: block;
+    }
+
+    &_prev,
+    &_next {
+      color: rgba(0, 39, 112, 0.445);
+    }
+
+    &_current {
+      color: rgba(255, 255, 255, 1);
+      background-color: var(--color-3);
+    }
+
+    &:not(&_current):hover {
+      background-color: var(--color-2);
+      color: var(--color-3);
+    }
+  }
+}
+
+.picker__time {
+  background-color: var(--color-1);
+  border-radius: 4px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: 220px;
+  row-gap: 4px;
+  padding: 2px 15px;
+  font-size: 12px;
+}
+
+.picker__timeItem {
+  padding: 4px;
+  border-radius: 4px;
+}
+.picker__timeItem:not(.picker__timeItem--active):hover {
+  background-color: var(--color-1-hover);
+}
+
+.picker__timeItem_active {
+  background-color: var(--color-3);
+  color: #ffffff;
+}
+
+.form {
+  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  overflow: hidden;
+  &_error {
+    border: 1px solid red;
+  }
+
+  &__label {
+    background-color: var(--color-1);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+  }
+
+  &__input {
+    font-size: 14px;
+    padding: 5px 10px;
+    flex: 1;
+  }
+
+  &__parse {
+    background-color: var(--color-1);
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-3);
+    transition: all 0.1s ease-in;
+
+    &:hover {
+      background-color: var(--color-1-hover);
+    }
+  }
+}
