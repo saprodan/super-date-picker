@@ -3,6 +3,7 @@
   max-width: 600px;
   gap: 5px;
   user-select: none;
+  // max-width: 100%;
 }
 
 .updateBtn {
@@ -22,6 +23,11 @@
   }
 }
 
+.controlsWrapper {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
 .controls {
   position: relative;
   height: 100%;
@@ -29,6 +35,11 @@
   border-radius: 4px;
   flex-grow: 1;
   display: flex;
+  max-width: 100%;
+
+  &_error {
+    border: 1px solid red;
+  }
 }
 
 .controls__quickSelect {
@@ -48,10 +59,13 @@
 }
 
 .controls__dates {
-  flex-grow: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  overflow: hidden;
 }
 
 .controls__start,
@@ -60,16 +74,16 @@
   flex-grow: 1;
   cursor: pointer;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+}
+
+.controls__btn {
+  display: block;
+  text-overflow: ellipsis;
   white-space: nowrap;
-  & span {
-    display: block;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
 }
 
 .controls__splitIcon {

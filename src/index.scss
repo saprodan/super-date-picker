@@ -104,7 +104,7 @@ input::-ms-clear {
 }
 
 button,
-input[type='submit'] {
+input[type="submit"] {
   display: inline-block;
   box-shadow: none;
   background-color: transparent;
@@ -153,4 +153,9 @@ legend {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #9ab3cf;
+}
+
+html,
+body {
+  min-height: 100vh;
 }

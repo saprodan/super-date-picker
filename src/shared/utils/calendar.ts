@@ -1,10 +1,10 @@
-import { parse } from 'date-format-parse';
+import { parse } from "date-format-parse";
 import {
   CommonIntervals,
   TimeDimension,
   type Interval,
   type dayInfo,
-} from '../types';
+} from "../types";
 
 /**
  * Возвращает "календарный лист" для заданного месяца
@@ -12,10 +12,7 @@ import {
  * @param month
  * @returns массив недель текущего месяца, дополненный днями соседних месяцев.
  */
-export function getWeeksOfMonth(
-  year: number,
-  month: number
-): dayInfo[][] {
+export function getWeeksOfMonth(year: number, month: number): dayInfo[][] {
   const firstDayOfWeek = new Date(year, month, 1).getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const lastDayOfWeek = new Date(year, month, daysInMonth).getDay();
@@ -28,7 +25,7 @@ export function getWeeksOfMonth(
     for (let i = firstDayOfWeek - 1; i >= 0; date--, i--) {
       daysInfo.unshift({
         date,
-        monthStatus: 'prev',
+        monthStatus: "prev",
         month: month === 0 ? 11 : month - 1,
         year: year - 1,
       });
@@ -37,7 +34,7 @@ export function getWeeksOfMonth(
 
   // дни текущего месяца
   for (let i = 1; i <= daysInMonth; i++) {
-    daysInfo.push({ date: i, monthStatus: 'current', month, year });
+    daysInfo.push({ date: i, monthStatus: "current", month, year });
   }
 
   // дни след месяца
@@ -46,7 +43,7 @@ export function getWeeksOfMonth(
     for (let i = lastDayOfWeek + 1; i <= 6; date++, i++) {
       daysInfo.push({
         date,
-        monthStatus: 'next',
+        monthStatus: "next",
         month: month === 11 ? 0 : month + 1,
         year: year + 1,
       });
@@ -67,18 +64,10 @@ export function getWeeksOfMonth(
  * @param value
  * @returns дата, если ОК, иначе undefined
  */
-export function parseDate(
-  value: string,
-  dateFormat: string
-): Date | undefined {
-  // Првоерка для формата "mmm d, yyyy @ HH:MM:ss"
-  const regFormat =
-    /^[A-Z,a-z][A-Z,a-z][A-Z,a-z] \d\d?, \d\d\d\d @ \d\d:\d\d:\d\d$/;
-
-  if (!regFormat.test(value)) return undefined;
-
+export function parseDate(value: string, dateFormat: string): Date | undefined {
   const date = parse(value, dateFormat);
-  return date;
+
+  return date instanceof Date && !isNaN(+date) ? date : undefined;
 }
 
 /**
@@ -160,11 +149,7 @@ export function getIntervalDates(common: CommonIntervals): Interval {
   switch (common) {
     case CommonIntervals.TODAY: {
       return {
-        startDate: new Date(
-          now.getFullYear(),
-          now.getMonth(),
-          now.getDate()
-        ),
+        startDate: new Date(now.getFullYear(), now.getMonth(), now.getDate()),
         endDate: new Date(
           now.getFullYear(),
           now.getMonth(),

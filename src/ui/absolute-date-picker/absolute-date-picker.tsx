@@ -1,19 +1,12 @@
-import { useState, type FormEvent } from 'react';
+import { useState, type FormEvent } from "react";
 
-import style from './absolute-date-picker.module.scss';
-import clsx from 'clsx';
-import {
-  getWeeksOfMonth,
-  parseDate,
-} from '../../shared/utils/calendar';
-import type { IAbsoluteDatePickerProps } from './absolute-date-picker.props';
-import { Icon } from '../../ui/icons';
-import {
-  FORMAT_MASK,
-  MONTHS_LIST,
-  TIME_LIST,
-} from '../../shared/constants';
-import { format } from 'date-format-parse';
+import style from "./absolute-date-picker.module.scss";
+import clsx from "clsx";
+import { getWeeksOfMonth, parseDate } from "../../shared/utils/calendar";
+import type { IAbsoluteDatePickerProps } from "./absolute-date-picker.props";
+import { Icon } from "../../ui/icons";
+import { FORMAT_MASK, MONTHS_LIST, TIME_LIST } from "../../shared/constants";
+import { format } from "date-format-parse";
 
 export const AbsoluteDatePicker = ({
   initialDate,
@@ -26,12 +19,8 @@ export const AbsoluteDatePicker = ({
   const [month, setMonth] = useState<number>(initialDate.getMonth());
   const [year, setYear] = useState<number>(initialDate.getFullYear());
   const [hours, setHours] = useState<number>(initialDate.getHours());
-  const [minutes, setMinutes] = useState<number>(
-    initialDate.getMinutes()
-  );
-  const [seconds, setSeconds] = useState<number>(
-    initialDate.getSeconds()
-  );
+  const [minutes, setMinutes] = useState<number>(initialDate.getMinutes());
+  const [seconds, setSeconds] = useState<number>(initialDate.getSeconds());
 
   const [inputDate, setInputDate] = useState<string>(
     format(initialDate, dateFormat || FORMAT_MASK)
@@ -131,6 +120,7 @@ export const AbsoluteDatePicker = ({
       onChange(date);
     } else {
       setIsSubmitError(true);
+      setIsFormatError(true);
     }
   };
 
@@ -189,9 +179,9 @@ export const AbsoluteDatePicker = ({
                     className={clsx(
                       style.calendar__item,
                       style.calendar__day,
-                      calendarDay.monthStatus === 'prev' &&
+                      calendarDay.monthStatus === "prev" &&
                         style.calendar__day_prev,
-                      calendarDay.monthStatus === 'next' &&
+                      calendarDay.monthStatus === "next" &&
                         style.calendar__day_next,
                       calendarDay.date === day &&
                         calendarDay.month === month &&
@@ -224,10 +214,7 @@ export const AbsoluteDatePicker = ({
               )}
               key={time.hour + time.minutes}
               onClick={() =>
-                onTimeClick(
-                  parseInt(time.hour),
-                  parseInt(time.minutes)
-                )
+                onTimeClick(parseInt(time.hour), parseInt(time.minutes))
               }
             >
               {time.hour}:{time.minutes}
@@ -238,10 +225,7 @@ export const AbsoluteDatePicker = ({
 
       <form
         onSubmit={(e) => handleDateSubmit(e)}
-        className={clsx(
-          style.form,
-          isSubmitError && style.form_error
-        )}
+        className={clsx(style.form, isSubmitError && style.form_error)}
       >
         <div className={style.form__label}>
           <p>{label}</p>
@@ -260,7 +244,7 @@ export const AbsoluteDatePicker = ({
 
       {isFormatError && (
         <p className={style.inputError}>
-          Allowed format: <span>{FORMAT_MASK}</span>
+          Allowed format: <span>{dateFormat || FORMAT_MASK}</span>
         </p>
       )}
     </div>

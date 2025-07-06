@@ -108,7 +108,7 @@
   padding: 4px;
   border-radius: 4px;
 }
-.picker__timeItem:not(.picker__timeItem--active):hover {
+.picker__timeItem:not(.picker__timeItem_active):hover {
   background-color: var(--color-1-hover);
 }
 
